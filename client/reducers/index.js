@@ -6,6 +6,6 @@ import comments from './comments';
 
 
 //posts, comments, and the changes (this is the routing. the changes get logged in redux)
-const rootReducer = combineReducers({posts, comments, router: routerReducer});
+const rootReducer = combineReducers({posts, comments, routing: routerReducer});
 
 export default rootReducer;

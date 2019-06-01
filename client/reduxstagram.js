@@ -15,16 +15,21 @@ import PhotoGrid from './components/PhotoGrid';
 
 //import react-router dependendcies
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+//store not { store } b.c it's a named export const store = '...'
 
-
-
+//Provider exposes the store to the application. You wrap the Router in the Provider
+//component and you pass it the store through the store prop.
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute component={PhotoGrid}></IndexRoute>
-      <Route path="/view/:postId" component={Single}></Route>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={PhotoGrid}></IndexRoute>
+        <Route path="/view/:postId" component={Single}></Route>
+      </Route>
+    </Router>
+  </Provider>
 )
 
 //if it matches / grab the Main component. Then depending on the URL structure

@@ -29,7 +29,7 @@ const store = createStore(rootReducer, defaultState);
 //browserHistory is when you go page to page it keeps track of where you've gone.
 //it takes that data and weave in the actual store.
 //to be accessible to other files, export it.
-export const history = syncHistoryWithStore(browserHistory);
+export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store;
-//could have also said export default const store above. Why default? 
+//could have also said export default const store above. Why default?
