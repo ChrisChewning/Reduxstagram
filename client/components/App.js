@@ -1,6 +1,8 @@
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actionCreators';
+//this is increment, addComment and removeComment
+
 import Main from './Main';
 
 
@@ -19,6 +21,7 @@ function mapDispatchToProps(dispatch) {
 
 //mapStateToProps and mapDispatchToProps takes the state (posts, comments) and the dispatch (aciton creators) and surface
 //that data via props in the component.
+
 const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default App = connect(mapStateToProps, mapDispatchToProps)
