@@ -1,18 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Photo from './Photo';
 
-
-const Main = React.createClass({
+const PhotoGrid = React.createClass({
   render() {
     return (
         <div className="photo-grid">
-I'm the photo grid.
+        {this.props.posts.map((post, i) => <Photo {...this.props}
+        key={i} i ={i} post={post} />
+          )}
         </div>
     )
   }
-})
+});
 
-export default Main;
+export default PhotoGrid;;
 
 
-//
+//this.props.posts is an array. Return th ePhoto component.
+//Photo grabs all the photos and styled but they are just boxes. the props
+//is what injects the actual photos.
+
+//... spread operator this.props
+//post = {post} gives us specific info ab the post.
