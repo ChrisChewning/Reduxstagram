@@ -1,9 +1,12 @@
-import React from 'React';
+import React from 'react';
 import { Link } from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Photo = React.createClass({
 render(){
+
+  //could say const { post, i, comments } = this.props;
+  //  this would let you say post.code instead of this.props.post.code for instance.
   return (
     <figure className="grid-figure">
       <div className="grid-photo-wrap">
@@ -14,7 +17,7 @@ render(){
         <CSSTransitionGroup transitionName="like"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}>
-          <span key={this.props.post.likes} classname="likes-heart"></span>
+          <span key={this.props.post.likes} className="likes-heart">{this.props.post.likes}</span>
         </CSSTransitionGroup>
 
       </div>
@@ -22,7 +25,8 @@ render(){
       <figcaption>
         <p>{this.props.post.caption}</p>
         <div className="control-buttons">
-          <button className="like">&hearts; {this.props.post.likes}</button>
+          <button onClick={this.props.increment.bind(null, this.props.i)}
+            className="like">&hearts; {this.props.post.likes}</button>
           <Link className="button" to={`/view/{post.code}`}>
             <span className="comment-count">
               <span className="speech-bubble"></span>
