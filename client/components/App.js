@@ -1,8 +1,6 @@
 import { bindActionCreators } from 'redux'; //
 import { connect } from 'react-redux'; //connect
-import * as actionCreators from '../actions/actionCreators';
-//this is increment, addComment and removeComment
-
+import * as actionCreators from '../actions/actionCreators'; //this is increment, addComment and removeComment
 import Main from './Main';
 
 
