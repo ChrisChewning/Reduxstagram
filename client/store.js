@@ -31,5 +31,13 @@ const store = createStore(rootReducer, defaultState);
 //to be accessible to other files, export it.
 export const history = syncHistoryWithStore(browserHistory, store);
 
+
+if(module.hot) {
+  module.hot.accept('./reducers/',() => {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
+
 export default store;
 //could have also said export default const store above. Why default?
